@@ -10,7 +10,6 @@
       margin: 0;
       padding: 0;
     }
-
     header {
       background: #4CAF50;
       color: white;
