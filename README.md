@@ -24,18 +24,15 @@
         .custom-shadow {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        
-        .hero-pattern {
+         .hero-pattern {
             background-image: url('https://sl.bing.net/gGLzj1ymZ1E');
             background-size: cover;
             background-position: center;
         }
-        
-        .transition-all {
+         .transition-all {
             transition: all 0.3s ease;
         }
-        
-        .fabric-texture {
+         .fabric-texture {
             background-image: url('https://www.transparenttextures.com/patterns/rice-paper.png');
         }
     </style>
@@ -59,8 +56,7 @@
             </button>
         </div>
     </nav>
-
-    <!-- Hero Section -->
+ <!-- Hero Section -->
     <section class="hero-pattern bg-primary text-white py-20 md:py-32 relative">
         <div class="absolute inset-0 bg-black opacity-40"></div>
         <div class="container mx-auto px-4 relative z-10">
@@ -75,8 +71,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Location Finder Modal -->
+<!-- Location Finder Modal -->
     <div id="locationModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
         <div class="bg-white rounded-lg p-6 max-w-md mx-4 w-full custom-shadow">
             <div class="flex justify-between items-center mb-4">
@@ -95,18 +90,16 @@
             </div>
         </div>
     </div>
-
     <!-- Results Section (initially hidden) -->
     <section id="resultsSection" class="hidden py-12 fabric-texture">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8 text-dark">Tailleurs près de chez vous</h2>
             <div id="tailorsResults" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Results will be populated by JavaScript -->
+    <!-- Results will be populated by JavaScript -->
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
+<!-- Services Section -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-dark">Nos Services</h2>
@@ -135,8 +128,7 @@
             </div>
         </div>
     </section>
-
-    <!-- How it Works -->
+ <!-- How it Works -->
     <section class="py-16 bg-primary text-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Comment ça marche ?</h2>
@@ -159,8 +151,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Featured Tailors -->
+<!-- Featured Tailors -->
     <section id="tailleurs" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-dark">Tailleurs Partenaires</h2>
@@ -188,8 +179,7 @@
                         </button>
                     </div>
                 </div>
-                
-                <!-- Tailor 2 -->
+                 <!-- Tailor 2 -->
                 <div class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-2">
@@ -212,8 +202,7 @@
                         </button>
                     </div>
                 </div>
-                
-                <!-- Tailor 3 -->
+                  <!-- Tailor 3 -->
                 <div class="bg-gray-50 rounded-lg overflow-hidden custom-shadow">
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-2">
@@ -239,7 +228,6 @@
             </div>
         </div>
     </section>
-
     <!-- Testimonials -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
@@ -296,8 +284,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
+ <!-- Contact Section -->
     <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto bg-gray-50 rounded-lg custom-shadow overflow-hidden">
@@ -324,11 +311,9 @@
             </div>
         </div>
     </section>
-
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+  <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; 2023 TailorConnect. Tous droits réservés.</p>
             </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Modal handling
@@ -340,8 +325,7 @@
             const locationError = document.getElementById('locationError');
             const resultsSection = document.getElementById('resultsSection');
             const tailorsResults = document.getElementById('tailorsResults');
-
-            // Sample tailors data - in a real app, this would come from an API
+    // Sample tailors data - in a real app, this would come from an API
             const sampleTailors = [
                 {
                     name: "Modou Fall",
@@ -376,21 +360,18 @@
                     phone: "+221 77 654 32 10"
                 }
             ];
-
-            // Toggle modal
+   // Toggle modal
             findTailorBtn.addEventListener('click', () => {
                 locationModal.classList.remove('hidden');
             });
-
-            closeModal.addEventListener('click', () => {
+       closeModal.addEventListener('click', () => {
+                locationModal.classList.add('hidden');
+            });
+      cancelBtn.addEventListener('click', () => {
                 locationModal.classList.add('hidden');
             });
 
-            cancelBtn.addEventListener('click', () => {
-                locationModal.classList.add('hidden');
-            });
-
-            // Handle location permission
+ // Handle location permission
             allowLocationBtn.addEventListener('click', () => {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
@@ -425,40 +406,32 @@
                     locationError.classList.remove('hidden');
                 }
             });
-
-            // Show tailors results
+   // Show tailors results
             function showTailorsResults() {
                 resultsSection.classList.remove('hidden');
                 tailorsResults.innerHTML = '';
-                
-                // Scroll to results
+                 // Scroll to results
                 setTimeout(() => {
                     resultsSection.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
-                
-                // Populate results
+                     // Populate results
                 sampleTailors.forEach(tailor => {
                     const stars = [];
                     const fullStars = Math.floor(tailor.rating);
                     const hasHalfStar = tailor.rating % 1 >= 0.5;
-                    
                     for (let i = 0; i < fullStars; i++) {
                         stars.push('<i class="fas fa-star text-yellow-400"></i>');
                     }
-                    
                     if (hasHalfStar) {
                         stars.push('<i class="fas fa-star-half-alt text-yellow-400"></i>');
                     }
-                    
                     const remainingStars = 5 - stars.length;
                     for (let i = 0; i < remainingStars; i++) {
                         stars.push('<i class="far fa-star text-yellow-400"></i>');
                     }
-                    
                     const tailorCard = document.createElement('div');
                     tailorCard.className = 'bg-white rounded-lg overflow-hidden custom-shadow transition-all hover:transform hover:-translate-y-1';
-                    tailorCard.innerHTML = `
-                        <img src="${tailor.image}" alt="${tailor.name}" class="w-full h-48 object-cover">
+                    tailorCard.innerHTML = <img src="${tailor.image}" alt="${tailor.name}" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="font-bold text-xl text-dark">${tailor.name}</h3>
